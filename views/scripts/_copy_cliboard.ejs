@@ -1,0 +1,21 @@
+<script>
+  const copyButton = document.getElementById("copy");
+  const shareLinkInput = document.getElementById("shareLink");
+  copyButton.addEventListener("click", () => {
+    shareLinkInput.select();
+    shareLinkInput.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(shareLinkInput.value);
+    showSuccss();
+  });
+  function showSuccss() {
+    const divSuccess = document.createElement("div");
+    const container = document.querySelector(".container");
+    divSuccess.innerHTML = `  
+      <input class="alert-state" id="alert-2" type="checkbox">
+    <div class="alert alert-success dismissible">
+        Link Copied Successfully
+    <label class="btn-close" for="alert-2">X</label>
+  </div>`;
+    container.prepend(divSuccess);
+  }
+</script>

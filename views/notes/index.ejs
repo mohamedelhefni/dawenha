@@ -1,0 +1,33 @@
+<%- include('../layout/header') %>
+
+<div class="container margin-top">
+  <div class="notes row">
+    <% notes.forEach(note => { %>
+
+    <div class="card w-full border">
+      <div class="card-body">
+        <div class="card-title">
+          <a href="/notes/<%= note.id %>" class="">
+            <h3 class="note-title"><%= note.title %></h3>
+          </a>
+        </div>
+      </div>
+      <div class="card-footer">
+       <div class="note-meta row margin-none">
+        <div class="col col-4">
+      <b>Date: </b> <span> <%= note.date.toLocaleDateString() %>  </span>
+        </div>
+        <div class="col col-4">
+          <b>views: </b> <span> <%= note.Meta.views %>  </span>
+        </div>
+        <div class="col col-4">
+          <b>Likes: </b> <span> <%= note.Meta.favs %>  </span>
+        </div>
+       </div> 
+      </div>
+    </div>
+
+    <% }) %>
+  </div>
+</div>
+<%- include('../layout/footer') %>

@@ -1,0 +1,19 @@
+<div class="share-note">
+      <label class="paper-btn margin btn-secondary" for="modal-2">Share</label>
+    <input class="modal-state" id="modal-2" type="checkbox" />
+    <div class="modal">
+      <label class="modal-bg" for="modal-2"></label>
+      <div class="modal-body">
+        <label class="btn-close" for="modal-2">X</label>
+        <h4 class="modal-title">Share </h4>
+        <p class="modal-text">
+            <div class="form-group">
+            <input type="text" disabled class="disabled" value="<%= baseUrl %>notes/<%= note.id %> " id="shareLink">
+            </div>
+        </p>
+        <label for="modal-2" class="paper-btn btn-primary" id="copy">Copy</label>
+        <label for="modal-2" class="paper-btn btn-danger">Close</label>
+      </div>
+    </div>
+ 
+</div>

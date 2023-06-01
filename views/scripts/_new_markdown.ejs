@@ -1,0 +1,11 @@
+<script>
+  const noteArea = document.getElementById("markdown");
+  const preview = document.getElementById("preview");
+  const md = window.markdownit();
+  noteArea.addEventListener("keyup", () => {
+    const result = md.render(noteArea.value);
+    preview.innerHTML = result;
+
+    hljs.highlightAll();
+  });
+</script>

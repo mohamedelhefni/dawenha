@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.2.0/markdown-it.min.js"
+      integrity="sha512-cTQeM/op796Fp1ZUxfech8gSMLT/HvrXMkRGdGZGQnbwuq/obG0UtcL04eByVa99qJik7WlnlQOr5/Fw5B36aw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css"
+    />
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <style>
+      .w-full {
+        width: 100%;
+      }
+      .mt-1 {
+        margin-top: 1rem;
+      }
+      pre {
+        padding: 0;
+        background-color: inherit;
+      }
+      blockquote {
+        background: #e8e8e8;
+        padding: 1rem;
+        border-left: 3px solid;
+      }
+      .d-none {
+        display: none;
+      }
+    </style>
+    <title>Note Sharing</title>
+  </head>
+  <body>
+    <nav class="border split-nav">
+      <div class="nav-brand">
+        <h3><a href="/">Nota</a></h3>
+      </div>
+      <div class="collapsible">
+        <input id="collapsible1" type="checkbox" name="collapsible1" />
+        <label for="collapsible1">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </label>
+        <div class="collapsible-body">
+          <ul class="inline">
+            <li><a href="/notes/new">New</a></li>
+            <li><a href="/notes/explore">Explore</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>

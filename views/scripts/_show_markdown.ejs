@@ -1,0 +1,9 @@
+<script>
+  const noteBody = document.querySelectorAll(".note-body");
+  const md = window.markdownit();
+  hljs.highlightAll();
+  noteBody.forEach((note) => {
+    const markdown = md.render(note.textContent);
+    note.innerHTML = markdown;
+  });
+</script>

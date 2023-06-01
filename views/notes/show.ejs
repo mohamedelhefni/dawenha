@@ -1,0 +1,28 @@
+<%- include('../layout/header') %>
+<div class="container margin-top">
+  <div class="note-meta margin-bottom padding border">
+    <h2 class="margin-none"> <%=  note.title %>  </h2>
+    <div class="row margin-top">
+      <div class="col">
+        <b>Date: </b> <span><%= note.date.toLocaleDateString() %> </span>
+      </div>
+      <div class="col">
+        <b>Views: </b> <span> <%= note.Meta.views %> </span>
+      </div>
+      <div class="col">
+        <b>likes: </b> <span id="likes"> <%= note.Meta.favs %> </span>
+      </div>
+    </div>
+    <div class="buttons-group row">
+      <button class="btn-success" id="like">Like</button>
+      <button class="btn-danger margin-left d-none" id="unlike">unlike</button>
+      <%- include('../components/_share_note') %> 
+    </div>
+  </div>
+  <div class="note-body border padding"><%= note.markdown %></div>
+</div>
+
+<%- include('../scripts/_like_unlike') %>
+<%- include('../scripts/_copy_cliboard') %>
+<%- include('../scripts/_show_markdown') %>
+ <%- include('../layout/footer') %>

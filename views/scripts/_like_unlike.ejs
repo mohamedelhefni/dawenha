@@ -1,0 +1,46 @@
+<script>
+  const likeButton = document.getElementById("like");
+  const unlikeButton = document.getElementById("unlike");
+  const likes = document.getElementById("likes");
+  let likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || [];
+
+  if (likedPosts.includes("<%= note.id %>")) {
+    likeButton.classList.add("d-none");
+    unlikeButton.classList.remove("d-none");
+  }
+
+  likeAndUnlike(unlikeButton, "unlike");
+  likeAndUnlike(likeButton, "like");
+  function addToLikedPosts() {
+    likedPosts.push("<%= note.id %>");
+    localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+  }
+
+  function removeFromLikedPosts() {
+    likedPosts = likedPosts.filter((id) => id != "<%= note.id %>");
+    localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+  }
+  function likeAndUnlike(btn, type) {
+    btn.addEventListener("click", () => {
+      fetch(`<%= baseUrl %>notes/${type}/<%= note.id %>`, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      })
+        .then((result) => result.json())
+        .then((data) => {
+          if (data.msg == "succ") {
+            if (type == "unlike") {
+              removeFromLikedPosts();
+              likeButton.classList.remove("d-none");
+              unlikeButton.classList.add("d-none");
+            } else {
+              addToLikedPosts();
+              likeButton.classList.add("d-none");
+              unlikeButton.classList.remove("d-none");
+            }
+            likes.textContent = data.likes;
+          }
+        });
+    });
+  }
+</script>

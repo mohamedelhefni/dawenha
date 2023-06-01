@@ -1,0 +1,31 @@
+<%- include('../layout/header') %>
+<div class="container border padding margin-top">
+  <h1 class="margin-small text-center">New note</h1>
+  <hr />
+  <form action="/notes/new" method="POST">
+    <input type="text" name="title" id="title" placeholder="Note Title" class="form-control w-full">
+    <textarea
+      name="markdown"
+      class="padding w-full margin-top"
+      id="markdown"
+      cols="30"
+      rows="10"
+      placeholder="Your note"
+    ></textarea>
+    <fieldset class="form-group margin">
+      <label for="global" class="paper-switch-label"> Global </label>
+      <label class="paper-switch">
+        <input id="global" name="public" type="checkbox" checked />
+        <span class="paper-switch-slider"></span>
+      </label>
+    </fieldset>
+    <div class="buttons margin-top">
+      <input type="submit" class="paper-btn btn-success" value="Save" />
+      <a type="button" class="btn-primary" href="/">Back</a>
+    </div>
+  </form>
+  <h3>preview</h3>
+  <div id="preview"></div>
+</div>
+<%- include('../scripts/_new_markdown') %>
+<%- include('../layout/footer') %>
